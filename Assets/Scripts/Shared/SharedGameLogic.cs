@@ -1,16 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using UnityEngine;
 
 public class SharedGameLogic : MonoBehaviour
 {
-    private bool isPlaying;
+    private bool minigameInProgress;
     private bool succeeded;
 
     // Getters
-    public bool GetIsPlaying()
+    public bool GetMinigameInProgress()
     {
-        return isPlaying;
+        return minigameInProgress;
     }
 
     public bool GetSucceeded()
@@ -20,13 +21,18 @@ public class SharedGameLogic : MonoBehaviour
 
     public void CompletedMinigame()
     {
-        isPlaying = false;
+        minigameInProgress = false;
         succeeded = true;
     }
 
     public void FailedMinigame()
     {
-        isPlaying = false;
+        minigameInProgress = false;
+        succeeded = false;
+    }
+
+    public void ResetValues(){
+        minigameInProgress = true;
         succeeded = false;
     }
 }
