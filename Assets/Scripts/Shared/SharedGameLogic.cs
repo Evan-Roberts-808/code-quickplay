@@ -4,15 +4,29 @@ using UnityEngine;
 
 public class SharedGameLogic : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private bool isPlaying;
+    private bool succeeded;
+
+    // Getters
+    public bool GetIsPlaying()
     {
-        
+        return isPlaying;
     }
 
-    // Update is called once per frame
-    void Update()
+    public bool GetSucceeded()
     {
-        
+        return succeeded;
+    }
+
+    public void CompletedMinigame()
+    {
+        isPlaying = false;
+        succeeded = true;
+    }
+
+    public void FailedMinigame()
+    {
+        isPlaying = false;
+        succeeded = false;
     }
 }
