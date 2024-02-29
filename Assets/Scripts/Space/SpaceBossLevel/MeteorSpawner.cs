@@ -5,9 +5,10 @@ using UnityEngine;
 public class MeteorSpawner : MonoBehaviour
 {
     [SerializeField] List<PathConfigSO> pathConfigs;
+    [SerializeField] List<GameObject> meteorVariants;
     [SerializeField] float timeBetweenPaths = 0f;
     [SerializeField] bool isLooping;
-    PathConfigSO currentPath;
+    PathConfigSO randomPath;
 
     // Start is called before the first frame update
     void Start()
@@ -15,28 +16,30 @@ public class MeteorSpawner : MonoBehaviour
         StartCoroutine(SpawnMeteorPaths());
     }
 
-    public PathConfigSO GetCurrentPath()
+    public PathConfigSO GetRandomPath()
     {
-        return currentPath;
+        return randomPath;
     }
 
     IEnumerator SpawnMeteorPaths()
     {
         do
         {
-            foreach(PathConfigSO path in pathConfigs)
-            {
-                currentPath = path;
-                for(int i = 0; i < currentPath.GetMeteorCount(); i++){
-                    Instantiate(currentPath.GetMeteorPrefab(i),
-                    currentPath.GetStartingWaypoint().position,
-                    Quaternion.Euler(0,0,180),
-                    transform);
-                    yield return new WaitForSeconds(currentPath.GetRandomSpawnTime());
-                }
-                yield return new WaitForSeconds(timeBetweenPaths);
-            }
-        }
-        while(isLooping);
+            int randomPathIndex = Random.Range(0, pathConfigs.Count);
+            Debug.Log(randomPathIndex);
+            randomPath = pathConfigs[randomPathIndex];
+            Debug.Log(randomPath);
+            int randomMeteorIndex = Random.Range(0, meteorVariants.Count);
+            Debug.Log(randomMeteorIndex);
+            GameObject randomMeteor = meteorVariants[randomMeteorIndex];
+            Debug.Log(randomMeteor);
+
+            Instantiate(randomMeteor, randomPath.GetStartingWaypoint().position,
+                        Quaternion.Euler(0, 0, 180), transform);
+
+            yield return new WaitForSeconds(randomPath.GetRandomSpawnTime());
+
+            yield return new WaitForSeconds(timeBetweenPaths);
+        } while (isLooping);
     }
 }

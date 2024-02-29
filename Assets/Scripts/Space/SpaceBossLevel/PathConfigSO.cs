@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Path Config", fileName = "New Path Config")]
 public class PathConfigSO : ScriptableObject
 {
-    [SerializeField] List<GameObject> meteorPrefabs;
+    [SerializeField] List<GameObject> meteorVariations;
     [SerializeField] Transform pathPrefab;
     [SerializeField] float moveSpeed = 5f;
     [SerializeField] float timeBetweenMeteorSpawns = 1f;
@@ -14,12 +14,12 @@ public class PathConfigSO : ScriptableObject
 
     public int GetMeteorCount()
     {
-        return meteorPrefabs.Count;
+        return meteorVariations.Count;
     }
 
     public GameObject GetMeteorPrefab(int index)
     {
-        return meteorPrefabs[index];
+        return meteorVariations[index];
     }
 
     public Transform GetStartingWaypoint()

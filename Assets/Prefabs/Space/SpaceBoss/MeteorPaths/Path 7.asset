@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a573f5de6a287744db6dfa771aba6dc6, type: 3}
+  m_Name: Path 7
+  m_EditorClassIdentifier: 
+  meteorVariations:
+  - {fileID: 7484871664262660506, guid: ffec3a07758e22f468844c2d9494e1cf, type: 3}
+  - {fileID: 3076096815049911125, guid: 7e8b279174a862a419751d9b2738906e, type: 3}
+  - {fileID: 6965052017320422903, guid: 0cb1bb49a94bab14f9f5daf6f6dcc3aa, type: 3}
+  - {fileID: 2512079164240601742, guid: c2a206bb750ac67448313d3e48c94b75, type: 3}
+  - {fileID: 7558295994153787535, guid: daa8648476d8ea447a3a0d75605e42db, type: 3}
+  - {fileID: 5317812530046402851, guid: f7328050815ed564088f365c04a769d9, type: 3}
+  - {fileID: 3204110928131706708, guid: 74f804810b81c38489f0651e35b7175a, type: 3}
+  - {fileID: 3958859417506252698, guid: c7baf7fdbb610ac4d8ff69779c9319b0, type: 3}
+  - {fileID: 943309785864000306, guid: bbf51f21f5492bb498c2b5de7a17750f, type: 3}
+  - {fileID: 8922634518573441342, guid: c4860282b7464d6409c1cba0a7b027f1, type: 3}
+  pathPrefab: {fileID: 494885356061912407, guid: 5a0e00dc46fdcba489eb2a00483d7cb5, type: 3}
+  moveSpeed: 5
+  timeBetweenMeteorSpawns: 1
+  spawnTimeVariance: 0
+  minimumSpawnTime: 0.2
