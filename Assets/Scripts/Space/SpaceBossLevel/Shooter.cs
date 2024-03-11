@@ -10,6 +10,8 @@ public class Shooter : MonoBehaviour
     [SerializeField] float projectileLifetime = 5f;
     [SerializeField] float baseFiringRate = 0.2f;
 
+    [Header("Boss")]
+    [SerializeField] bool useAi;
     [SerializeField] float firingRateVariance = 0f;
     [SerializeField] float minimumFiringRate = 0.1f;
 
@@ -19,7 +21,10 @@ public class Shooter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        if(useAi)
+        {
+            isFiring=true;
+        }
     }
 
     // Update is called once per frame
